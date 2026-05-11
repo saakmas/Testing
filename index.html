@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Minimalist AI calendar website with clean, modern design">
+    <title>AICalendar.in</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="#start" class="logo-link">
+                    <span class="logo-text">AICalendar.</span><span class="logo-accent">in</span>
+                </a>
+            </div>
+
+            <!-- Navigation Menu -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#start" class="nav-link">START</a></li>
+                <li><a href="#features" class="nav-link">FEATURES</a></li>
+                <li><a href="#pricing" class="nav-link">PRICING</a></li>
+                <li><a href="#faqs" class="nav-link">FAQS</a></li>
+            </ul>
+
+            <!-- Create Calendar Button -->
+            <button class="btn-create-calendar" id="createCalendarBtn" type="button">
+                Create calendar
+            </button>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false" type="button">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Sections -->
+    <main class="main-content">
+        <!-- START Section -->
+        <section id="start" class="content-section">
+            <div class="calendar-layout">
+                <!-- Left Sidebar - Leave Days Panel -->
+                <aside class="leave-days-panel"  aria-label="Leave days selection">
+                    <div class="leave-days-header">
+                        <h3>Leave Days</h3>
+                        <p class="leave-days-subtitle">Select days to mark as leave</p>
+                    </div>
+                    <div class="leave-days-list">
+                        <label class="leave-day-item">
+                            <input type="checkbox" class="leave-day-checkbox" data-day="0" aria-label="Sunday leave day">
+                            <span class="leave-day-label">Sunday</span>
+                        </label>
+                        <label class="leave-day-item">
+                            <input type="checkbox" class="leave-day-checkbox" data-day="1" aria-label="Monday leave day">
+                            <span class="leave-day-label">Monday</span>
+                        </label>
+                        <label class="leave-day-item">
+                            <input type="checkbox" class="leave-day-checkbox" data-day="2" aria-label="Tuesday leave day">
+                            <span class="leave-day-label">Tuesday</span>
+                        </label>
+                        <label class="leave-day-item">
+                            <input type="checkbox" class="leave-day-checkbox" data-day="3" aria-label="Wednesday leave day">
+                            <span class="leave-day-label">Wednesday</span>
+                        </label>
+                        <label class="leave-day-item">
+                            <input type="checkbox" class="leave-day-checkbox" data-day="4" aria-label="Thursday leave day">
+                            <span class="leave-day-label">Thursday</span>
+                        </label>
+                        <label class="leave-day-item">
+                            <input type="checkbox" class="leave-day-checkbox" data-day="5" aria-label="Friday leave day">
+                            <span class="leave-day-label">Friday</span>
+                        </label>
+                        <label class="leave-day-item">
+                            <input type="checkbox" class="leave-day-checkbox" data-day="6" aria-label="Saturday leave day">
+                            <span class="leave-day-label">Saturday</span>
+                        </label>
+                    </div>
+                </aside>
+
+                <!-- Calendar Container -->
+                <div class="container">
+                <!-- Calendar Header -->
+                <header class="calendar-header" role="banner">
+                    <h1 class="calendar-title">Calendar</h1>
+                </header>
+
+        <!-- Calendar Navigation and Display -->
+        <main class="calendar-main" role="main">
+            <!-- Month Navigation -->
+            <div class="calendar-nav" role="navigation" aria-label="Month navigation">
+                <button 
+                    class="nav-button prev-month" 
+                    aria-label="Previous month"
+                    id="prevMonth"
+                    type="button"
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                
+                <div class="month-year-display">
+                    <span class="month-name" id="monthName"></span>
+                    <span class="year-name" id="yearName"></span>
+                </div>
+                
+                <button 
+                    class="nav-button next-month" 
+                    aria-label="Next month"
+                    id="nextMonth"
+                    type="button"
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Calendar Grid -->
+            <div class="calendar-wrapper">
+                <!-- Day of week headers -->
+                <div class="calendar-weekdays" role="row">
+                    <div class="weekday" role="columnheader" aria-label="Sunday">Sun</div>
+                    <div class="weekday" role="columnheader" aria-label="Monday">Mon</div>
+                    <div class="weekday" role="columnheader" aria-label="Tuesday">Tue</div>
+                    <div class="weekday" role="columnheader" aria-label="Wednesday">Wed</div>
+                    <div class="weekday" role="columnheader" aria-label="Thursday">Thu</div>
+                    <div class="weekday" role="columnheader" aria-label="Friday">Fri</div>
+                    <div class="weekday" role="columnheader" aria-label="Saturday">Sat</div>
+                </div>
+
+                <!-- Calendar days grid -->
+                <div class="calendar-days" id="calendarDays" role="grid" aria-label="Calendar">
+                    <!-- Days will be generated by JavaScript -->
+                </div>
+            </div>
+        </main>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES Section -->
+        <section id="features" class="content-section">
+            <div class="container">
+                <header class="calendar-header" role="banner">
+                    <h2 class="calendar-title">Features</h2>
+                </header>
+                <div class="calendar-main" role="main">
+                    <div class="features-content">
+                        <div class="feature-item">
+                            <h3>Clean Design</h3>
+                            <p>Apple-inspired minimalist interface with soft shadows and rounded corners.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Fully Responsive</h3>
+                            <p>Works seamlessly on desktop, tablet, and mobile devices.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Accessible</h3>
+                            <p>Built with ARIA roles and keyboard navigation support.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>No Dependencies</h3>
+                            <p>Pure HTML, CSS, and JavaScript - no external libraries required.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING Section -->
+        <section id="pricing" class="content-section">
+            <div class="container">
+                <header class="calendar-header" role="banner">
+                    <h2 class="calendar-title">Pricing</h2>
+                </header>
+                <div class="calendar-main" role="main">
+                    <div class="pricing-content">
+                        <div class="pricing-card">
+                            <h3>Free</h3>
+                            <div class="price">$0</div>
+                            <ul class="pricing-features">
+                                <li>Basic calendar view</li>
+                                <li>Month navigation</li>
+                                <li>Current date highlighting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQS Section -->
+        <section id="faqs" class="content-section">
+            <div class="container">
+                <header class="calendar-header" role="banner">
+                    <h2 class="calendar-title">FAQs</h2>
+                </header>
+                <div class="calendar-main" role="main">
+                    <div class="faqs-content">
+                        <div class="faq-item">
+                            <h3>How do I navigate between months?</h3>
+                            <p>Use the previous/next buttons or keyboard shortcuts (Alt + Arrow keys).</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Is this calendar accessible?</h3>
+                            <p>Yes, the calendar includes ARIA roles and supports full keyboard navigation.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Can I use this on mobile?</h3>
+                            <p>Absolutely! The calendar is fully responsive and works on all devices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
